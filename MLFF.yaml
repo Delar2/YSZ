@@ -73,7 +73,7 @@ data:
   # https://pytorch.org/docs/stable/data.html#torch.utils.data.DataLoader
   train_dataloader:
     _target_: torch.utils.data.DataLoader
-    batch_size: 10
+    batch_size: 5
     num_workers: 5
     shuffle: true
   val_dataloader:
@@ -276,6 +276,7 @@ training_module:
 
 global_options:
   allow_tf32: false
+
 
 
 
