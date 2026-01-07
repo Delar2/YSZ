@@ -20,8 +20,8 @@ cutoff_radius: 5.0
 # variable interpolation is convenient for wandb sweeps, see documentation for more details
 # the following are NequIP model hyperparameters that can be swept over
 num_layers: 3       # number of interaction blocks, we find 3-5 to work best
-l_max: 2            # the maximum irrep order (rotation order) for the network's features, l=1 is a good default, l=2 is more accurate but slower
-num_features: 64    # the multiplicity of the features, 32 is a good default for accurate network, if you want to be more accurate, go larger, if you want to be faster, go lower
+l_max: 1            # the maximum irrep order (rotation order) for the network's features, l=1 is a good default, l=2 is more accurate but slower
+num_features: 32    # the multiplicity of the features, 32 is a good default for accurate network, if you want to be more accurate, go larger, if you want to be faster, go lower
 
 # There are two sets of atomic types to keep track of in most applications.
 # There is the conventional atomic species (e.g. C, H), and a separate `type_names` known to the model.
@@ -73,8 +73,8 @@ data:
   # https://pytorch.org/docs/stable/data.html#torch.utils.data.DataLoader
   train_dataloader:
     _target_: torch.utils.data.DataLoader
-    batch_size: 5
-    num_workers: 5
+    batch_size: 10
+    num_workers: 2
     shuffle: true
   val_dataloader:
     _target_: torch.utils.data.DataLoader
@@ -276,6 +276,7 @@ training_module:
 
 global_options:
   allow_tf32: false
+
 
 
 
